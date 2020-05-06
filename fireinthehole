@@ -1,5 +1,5 @@
 #!/bin/bash
 
-URL="https://74855bcb.ngrok.io/job/merge-job/build?token=fireinthehole"
+URL="Replace with your build trigger with script url"
 echo "Running merge-job and pushin changes to remote..."
-curl --user admin:h4r5h@g4u74m $URL
+curl --user username:password $URL
