@@ -1,6 +1,8 @@
 import smtplib, ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+form email.MIMEBase import MIMEBase
+from os.path import basename
 
 def mailer(myval):
     sender_email = "sender's mail"
@@ -9,7 +11,7 @@ def mailer(myval):
     password = 'password'
 
     message = MIMEMultipart("alternative")
-    message["Subject"] = "AWS Automated Mail"
+    message["Subject"] = "Server not working!!"
     message["From"] = sender_email
     message["To"] = receiver_email
     
@@ -20,7 +22,7 @@ def mailer(myval):
         <html>
           <body>
             <p>
-               Your webserver along with EBS has been deployed on AWS Successfully, Here is the URL: <b>{}</b>
+               The webserver is not working...please check the attachment for logs
             </p>
           </body>
         </html>
@@ -29,8 +31,12 @@ def mailer(myval):
         # Turn these into plain/html MIMEText objects
         part1 = MIMEText(text, "plain")
         part2 = MIMEText(html, "html")
+        filepart = MIMEBase('application', 'octet-stream')
+        filepart.set_payload(open("response.txt",'rb').read())
+        Encoders.encode_base64(filepart)
         message.attach(part1)
         message.attach(part2)
+        message.attach(filepart)
 
         # Create secure connection with server and send email
         context = ssl.create_default_context()
