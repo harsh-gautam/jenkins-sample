@@ -1,5 +1,5 @@
-<//?php
+<?php
 
-echo "Hello User...Website is working fine!"
+echooooo "Hello User...Website is working fine!"
 
 ?>
