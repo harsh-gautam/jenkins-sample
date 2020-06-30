@@ -2,7 +2,7 @@
 
 <?php
 
-echo "Hello User...Website is working fine"
+echo "Hello User...Website is working fine!"
 
 ?>
 
